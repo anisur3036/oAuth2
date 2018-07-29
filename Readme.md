@@ -78,7 +78,8 @@ Route::group([
         Route::get('logout', 'AuthController@logout');
         Route::get('user', 'AuthController@user');
     });
-})```
+})
+```
 
 ### Create AuthController
 
