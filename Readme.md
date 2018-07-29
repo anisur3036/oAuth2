@@ -1,10 +1,12 @@
 ### Create this below artisan command to add passport and install it
-```composer require laravel/passport
-```php artisan migrate
-```php artisan passport:install
+```php
+composer require laravel/passport
+php artisan migrate
+php artisan passport:install
+```
 
 ### Add HasApiTokens into User Model
-```<?php
+```php
 namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -12,11 +14,12 @@ use Laravel\Passport\HasApiTokens;
 class User extends Authenticatable
 {
     use Notifiable, HasApiTokens;
-}```
+}
+```
 
 ### Add Passport::routes(); into boot()
 
-```<?php
+```php
 namespace App\Providers;
 use Laravel\Passport\Passport;
 use Illuminate\Support\Facades\Gate;
@@ -41,11 +44,13 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
         Passport::routes();
     }
-}```
+}
+```
 
 ### add api driver to passport
 
-```'guards' => [
+```php
+'guards' => [
     'web' => [
         'driver' => 'session',
         'provider' => 'users',
@@ -54,11 +59,12 @@ class AuthServiceProvider extends ServiceProvider
         'driver' => 'passport',
         'provider' => 'users',
     ],
-]```
+]
+```
 
 ### Add Route into route/api.php
 
-```<?php
+```php
 use Illuminate\Http\Request;
 Route::group([
     'prefix' => 'auth'
@@ -170,4 +176,5 @@ class AuthController extends Controller
     {
         return response()->json($request->user());
     }
-}```
+}
+```
