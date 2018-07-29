@@ -47,7 +47,7 @@ class AuthServiceProvider extends ServiceProvider
 }
 ```
 
-### add api driver to passport
+### change api driver token to passport
 
 ```php
 'guards' => [
@@ -82,7 +82,7 @@ Route::group([
 
 ### Create AuthController
 
-```<?php
+```php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
